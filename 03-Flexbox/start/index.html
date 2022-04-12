@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Lezione CSS</title>
+    <style>
+        body {
+            font-size: 20px
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        /* aside e main, uno affianco all'altro */
+        .flexbox-container {
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 0 2%;
+            height: 600px;
+        }
+
+       
+        aside {
+            height: 100%;
+            flex: 0 0 200px;
+            /* gestione in colonna delle box dentro aside */
+            display: flex; 
+            flex-flow: column nowrap;
+            align-items: center;
+        }
+
+        /*il div con dentro il logo e i 4 link affiancati */
+        aside > div:first-child { 
+            flex: 1 0 auto;
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 0 10px;
+            
+        }
+
+        /* i 4 link */
+        aside > div:first-child > div:last-child > a {
+            color: #2b2b2b;
+            transition: 300ms;
+        }
+        /* i 4 link quando ci passi sopra */
+        aside > div:first-child > div:last-child > a:hover {
+            color: #2b2bb2;
+        }
+
+        /* avatar e nome utente */
+        aside > div:last-child {
+            text-align: center;
+        }
+
+        main {
+            flex: 4 0 200px;
+            border: 5px solid rgb(152, 155, 117);
+            padding: 0 2%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flexbox-container">
+        <aside>
+            <div>
+                <div>
+                    <img src="images/logo-placeholder.webp" alt="logo-placeholder">
+                </div>
+                <div>
+                    <a href="#">link 1</a> 
+                    <a href="#">link 2</a> 
+                    <a href="#">link 3</a> 
+                    <a href="#">link 4</a>
+                </div>
+            </div>
+            <div>
+                <img src="images/avatar-placeholder.png" width="300" alt="avatar-placeholder">
+                <h1>nome utente</h1>
+            </div>
+        </aside>
+        <main>
+            <p>sono solo un umile main. <br /> 
+            alla mia sinistra c'è la grandiosa sidebar <br />
+            (non ho capito se i 4 link li voleva sotto il logo o di fianco, io nel dubbio ho fatto quello che era piu difficile)</p>
+        </main>
+    </div>
+</body>
+
+</html>
