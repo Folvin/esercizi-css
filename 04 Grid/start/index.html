@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Document</title>
+    <style>
+        html {
+            font-size: 25px;
+        }
+        body {
+            background-color: white;
+        }
+
+        .grid-container {
+            background-color: rgb(240, 240, 240);
+            margin: auto;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px;
+            width: 40%;
+            display: grid;
+            grid-template: repeat(6, 1fr) / repeat(4, 1fr);
+            justify-items: stretch;
+            align-items: center;
+        }
+
+        /* il primo 0 */
+        .grid-container > div:first-child {
+            grid-area: 1 / 1 / 1 / span 4;
+            align-self: stretch;
+            text-align: end;
+            padding: 0 20px;
+            border-radius: 20px 20px 0 0;
+            background-color: rgb(68, 68, 68);
+            color: white;
+        }
+
+        .grid-container > * {
+            border: 1px solid rgb(122, 122, 122);
+            text-align: center;
+        }
+
+        .brighter {
+            background-color: rgba(58, 191, 196, 0.486);
+        }
+
+        /* lo 0 che sta in basso */
+        .grid-container > div:nth-child(16) {
+            border-bottom-left-radius: 20px;
+        }
+
+        /* il div che contiene il div e l'uguale */
+        .grid-container > div:nth-child(9) {
+            grid-area: 3 / 4 / span 4 / 4;
+            background-color: rgb(247, 81, 81);
+            border-bottom-right-radius: 20px;
+            text-align: center;
+            align-self: stretch;
+            display: flex;
+        }
+
+        /* div flexbox che contiene l'uguale */
+        .grid-container > div:nth-child(9) > div {
+            flex: 1 0 auto;
+            align-self: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div>
+            <p>0</p>
+        </div>
+        <div class="brighter">
+            <p>+</p>
+        </div>
+        <div class="brighter">
+            <p>-</p>
+        </div>
+        <div class="brighter">
+            <p>x</p>
+        </div>
+        <div class="brighter">
+            <p>÷</p>
+        </div>
+        <div>
+            <p>7</p>
+        </div>
+        <div>
+            <p>8</p>
+        </div>
+        <div>
+            <p>9</p>
+        </div>
+        <div>
+            <div>
+                <p>=</p>
+            </div>
+        </div>
+        <div>
+            <p>4</p>
+        </div>
+        <div>
+            <p>5</p>
+        </div>
+        <div>
+            <p>6</p>
+        </div>
+        <div>
+            <p>1</p>
+        </div>
+        <div>
+            <p>2</p>
+        </div>
+        <div>
+            <p>3</p>
+        </div>
+        <div>
+            <p>0</p>
+        </div>
+        <div>
+            <p>.</p>
+        </div>
+        <div>
+            <p>AC</p>
+        </div>
+        
+    </div>
+</body>
+</html>
