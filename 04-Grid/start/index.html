@@ -7,10 +7,11 @@
     <title>Document</title>
     <style>
         html {
-            font-size: 25px;
+            font-size: 20px;
         }
         body {
-            background-color: white;
+            padding: 0;
+            margin: 0;
         }
 
         .grid-container {
@@ -18,27 +19,53 @@
             margin: auto;
             border-radius: 20px;
             box-shadow: 0px 0px 10px;
-            width: 40%;
+            box-sizing: border-box;
+            width: 40vw;
+            height: 40vw;
+            padding: 0;
             display: grid;
             grid-template: repeat(6, 1fr) / repeat(4, 1fr);
-            justify-items: stretch;
-            align-items: center;
+        }
+
+        /* query per fare che quando sei da telefono sia decente */
+        @media (max-width: 500px){
+            .grid-container {
+            width: 70vw;
+            height: 70vw;
+            }
         }
 
         /* il primo 0 */
         .grid-container > div:first-child {
             grid-area: 1 / 1 / 1 / span 4;
-            align-self: stretch;
-            text-align: end;
-            padding: 0 20px;
             border-radius: 20px 20px 0 0;
             background-color: rgb(68, 68, 68);
             color: white;
         }
 
-        .grid-container > * {
+        /* tutti i div nel grid container */
+        .grid-container > div {
             border: 1px solid rgb(122, 122, 122);
+            /* imposto i div come flexcontainer per rendere p delle flexbox */
+            display: flex;
+            flex-flow: row nowrap;
+            /* allinea al centro sia orizzontalmente che verticalmente tutti gli p */
             text-align: center;
+            align-items: center;
+        }
+
+        /* tutti i p di tutti i div */
+        .grid-container > div > p {
+            padding: 0;
+            margin: 0;
+            /* cosi che i p che sono flexbox occupano tutto lo spazio della loro cella */
+            flex: 1 0 auto;
+        }
+
+        /* lo 0 piu in alto */
+        .grid-container > div:first-child > p {
+            text-align: end;
+            padding-right: 3%;
         }
 
         .brighter {
@@ -50,20 +77,11 @@
             border-bottom-left-radius: 20px;
         }
 
-        /* il div che contiene il div e l'uguale */
+        /* il div che contiene l'uguale */
         .grid-container > div:nth-child(9) {
             grid-area: 3 / 4 / span 4 / 4;
             background-color: rgb(247, 81, 81);
             border-bottom-right-radius: 20px;
-            text-align: center;
-            align-self: stretch;
-            display: flex;
-        }
-
-        /* div flexbox che contiene l'uguale */
-        .grid-container > div:nth-child(9) > div {
-            flex: 1 0 auto;
-            align-self: center;
         }
     </style>
 </head>
@@ -94,9 +112,7 @@
             <p>9</p>
         </div>
         <div>
-            <div>
-                <p>=</p>
-            </div>
+            <p>=</p>
         </div>
         <div>
             <p>4</p>
