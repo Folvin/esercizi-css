@@ -7,87 +7,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Lezione CSS</title>
     <style>
+             
+        html {
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+
+        }
         body {
-            font-size: 20px
+            margin: 0;
+            padding: 0;
         }
 
         img {
-            max-width: 100%;
+            max-width: 100%;;
         }
 
-        /* aside e main, uno affianco all'altro */
+        /* nav e main, uno affianco all'altro */
         .flexbox-container {
             display: flex;
             flex-flow: row nowrap;
-            gap: 0 2%;
-            height: 600px;
+            height: 100vh;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 10px;
+            gap: 0 10px;
         }
 
        
-        aside {
+        nav {
             height: 100%;
-            flex: 0 0 200px;
-            /* gestione in colonna delle box dentro aside */
+            flex: 1 0 70px;
+            /* gestione in colonna delle box dentro nav */
             display: flex; 
             flex-flow: column nowrap;
             align-items: center;
         }
 
-        /*il div con dentro il logo e i 4 link affiancati */
-        aside > div:first-child { 
-            flex: 1 0 auto;
+        /* il div con dentro il logo */
+        nav > div:first-child { 
+            flex: 0 0 auto;
             display: flex;
             flex-flow: row nowrap;
-            gap: 0 10px;
-            
         }
 
-        /* i 4 link */
-        aside > div:first-child > div:last-child > a {
+        nav > div:nth-child(2) {
+            flex: 1 0 auto;
+        }
+
+        /* i 4 link nella nav */
+        nav > div:nth-child(2) a {
             color: #2b2b2b;
             transition: 300ms;
         }
-        /* i 4 link quando ci passi sopra */
-        aside > div:first-child > div:last-child > a:hover {
+        /* i 4 link nella nav quando ci passi sopra */
+        nav > div:nth-child(2) a:hover {
             color: #2b2bb2;
+        }
+        
+        /* la ul nella nav */
+        nav div:nth-child(2) ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* i list item nella nav */
+        nav div:nth-child(2) li {
+            list-style: none;
         }
 
         /* avatar e nome utente */
-        aside > div:last-child {
+        nav > div:last-child {
             text-align: center;
         }
 
-        main {
-            flex: 4 0 200px;
-            border: 5px solid rgb(152, 155, 117);
-            padding: 0 2%;
+        /* il nome utente */
+        nav > div:last-child > h1 {
+            margin: 0;
+            font-size: 25px;
         }
+
+        main {
+            height: 100%;
+            box-sizing: border-box;
+            flex: 14 0 200px;
+            margin: 0;
+            padding: 1%;
+            border: 5px solid rgb(152, 155, 117);
+        }
+
+        /* il primo p che appare in main */
+        main > p:first-of-type {
+            margin: 0;
+        }
+
     </style>
 </head>
-
 <body>
     <div class="flexbox-container">
-        <aside>
+        <nav>
             <div>
-                <div>
-                    <img src="images/logo-placeholder.webp" alt="logo-placeholder">
-                </div>
-                <div>
-                    <a href="#">link 1</a> 
-                    <a href="#">link 2</a> 
-                    <a href="#">link 3</a> 
-                    <a href="#">link 4</a>
-                </div>
+                <img src="images/logo-placeholder.webp" alt="logo-placeholder">
             </div>
+
+            <div>
+                <ul>
+                    <li><a href="#">link 1</a></li>
+                    <li><a href="#">link 2</a></li>
+                    <li><a href="#">link 3</a></li>
+                    <li><a href="#">link 4</a></li>
+                </ul>
+            </div>
+
             <div>
                 <img src="images/avatar-placeholder.png" width="300" alt="avatar-placeholder">
                 <h1>nome utente</h1>
             </div>
-        </aside>
+        </nav>
         <main>
-            <p>sono solo un umile main. <br /> 
-            alla mia sinistra c'è la grandiosa sidebar <br />
-            (non ho capito se i 4 link li voleva sotto il logo o di fianco, io nel dubbio ho fatto quello che era piu difficile)</p>
+            <p>sono solo un umile main.</p>
+            <p>alla sinistra di questo main c'è una grandiosa navbar</p>
+            <p>sia il nav che il main hanno una height del 100%</p>
+            <p>il flexbox container ha un'altezza pari al 100% del viewport</p>
+            <p>il nav è 1/15 del container (più o minimo 70px)</p>
+            <p>il main è 14/15 (più o minimo 200px)</p>
+
         </main>
     </div>
 </body>
