@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        img {
+            max-width: 100%;
+        }
+        
+        .flex {
+            display: flex;
+            flex-flow: column nowrap;
+            width: 300px;
+            margin: 10px;
+            border: 3px solid rgb(189, 189, 189);
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        /* tutti i flex item */
+        .flex > * {
+            flex: 1 1 auto;
+            box-sizing: border-box;
+        }
+
+        /* tutti i flex item tranne il primo e il secondo, */
+        .flex > div:not(.flex > div:nth-child(2)):not(.flex > div:first-child){
+            border-top: 3px  solid rgb(189, 189, 189);
+        }
+        
+        .flex > div:first-child > img {
+            border-bottom: 3px solid rgb(189, 189, 189);
+        }
+
+        /* i 2 p che contengono i 2 link */
+        .flex > div:last-child p {
+            display: inline-block;
+        }
+
+        /* tutte le righe di testo dei flex item tranne il primo */
+        .flex > div:not(.flex > div:first-child) > * {
+            padding: 5px 10px 10px;
+
+            
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div>
+            <img src="images/immagine-placeholder.png" width="300" alt="placeholder">
+        </div>
+        <div>
+            <h2>card title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum voluptatibus adipisci, non velit, fuga porro quisquam sint, accusantium aliquam quis aspernatur repudiandae incidunt soluta labore odio omnis similique nostrum veritatis.</p>
+        </div>
+        <div>
+            <p>an item</p>
+            <p>a second item</p>
+            <p>a third item</p>
+        </div>
+        <div>
+            <p><a href="#">card link</a></p> <p><a href="#">another link</a></p>
+        </div>
+    </div>
+</body>
+</html>
