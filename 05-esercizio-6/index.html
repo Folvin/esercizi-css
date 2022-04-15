@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>document</title>
+    <style>
+        html {
+            font-size: 20px;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* nav flex container, items verticalmente centrati e testo sulla sinistra */
+        nav {
+            display: flex;
+            text-align: start;
+            height: 50px;
+            padding: 0 10px;
+            background-color: darkslategray;
+            color: rgb(240, 224, 194);
+        }
+
+        /* i colori e la dimensione del testo di tutti gli element dentro la nav sono ereditari */
+        nav * {
+            font-size: inherit;
+            color: inherit;
+        }
+
+        /* imposto i flex item come altri container per formattare come voglio il contenuto, 
+            non sto usando align item sul flex container padre per evitare di ridurre l'area del click del link
+            e dell'hover del dropdown*/
+        nav>* {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            transition: 300ms;
+            padding: 10px;
+            }
+
+        /* i flex item nella nav (tranne il search e il primo div) quando in hover */
+        nav>*:hover:not(.search, nav>div:first-child) {
+            background-color: rgb(25, 43, 43);
+            color: cyan;
+        }
+
+        /* tolti padding e margin dei tag p */
+        p {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* tolta sottolineatura */
+        a {
+            text-decoration: none;
+        }
+
+        /* il div con dentro il dropdown e le opzioni */
+        .dropdown {
+            position: relative;
+        }
+
+        /* le opzioni del dropdown non sono visibili */
+        .option {
+            display: none;
+            background-color: darkslategray;
+            color: rgb(240, 224, 194);
+            position: absolute;
+            width: 100%;
+            top: 100%;
+            right: 0;
+        }
+
+        /* le opzioni del dropdown diventano visibili quando in hover */
+        .dropdown:hover .option {
+            display: block;
+        }
+
+        /* le singole opzioni del dropdown */
+        .option > a {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: 300ms;
+        }
+
+        /* quando le singole opzioni del dropdown sono in hover */
+        .option > a:hover {
+            color: cyan;
+            background-color: rgb(25, 43, 43);
+        }
+
+        /* il bottone disabilitato */
+        button[disabled] {
+            background-color: inherit;
+            border: none;
+            padding: 0;
+        }
+
+        /* input field e button per il search */
+        .search {
+            text-align: right;
+            flex: 1 0 auto;
+        }
+        
+        /* input field del search */
+        input[type="search"] {
+            border: 1px solid rgb(156, 156, 156);
+            border-radius: 5px;
+        }
+
+        /* button per il search */
+        button[type="submit"] {
+            background-color: inherit;
+            border-radius: 5px;
+            border: 2px solid rgb(32, 143, 32);
+            color: rgb(32, 143, 32);
+            transition: 300ms;
+        }
+
+        /* il bottone del search quando in hover */
+        button[type="submit"]:hover {
+            color: white;
+            background-color: rgb(32, 143, 32);
+        }
+
+        .hamburgher {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px){
+            .display-none {
+                display: none;
+            }
+            .hamburgher {
+                display: block;
+                border-radius: 20px;
+                padding: 10px;
+            }
+            nav > div:first-child {
+                flex: 1 0 auto;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div>
+            <p>Navbar</p>
+        </div>
+        <a class="display-none" href="#">
+            <p>Home</p>
+        </a>
+
+        <a class="display-none" href="#">
+            <p>Link</p>
+        </a>
+
+        <div class="dropdown display-none">
+            <p>Dropdown</p>
+            <div class="option">
+                <a href="#">
+                    <p>Link 1</p>
+                </a>
+                <a href="#">
+                    <p>Link 2</p>
+                </a>
+                <a href="#">
+                    <p>Link 3</p>
+                </a>
+            </div>
+        </div>
+        <div class="display-none">
+            <button disabled>disabled</button>
+        </div>
+        <div class="search display-none">
+            <form action="#" method="get">
+                <input type="search" name="search" id="search" placeholder="search" />
+                <button type="submit">search</button>
+            </form>
+        </div>
+        <img class="hamburgher" src="hamburgher-menu.jpg" alt="hamburgher menu" />
+    </nav>
+</body>
+
+</html>
