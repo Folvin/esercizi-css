@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -30,6 +31,7 @@
             box-sizing: border-box;
         }
 
+        /* lo so che tutti sti selettori sono una boiata ma volevo provarli e vedere se funzionavano come pensavo */
         /* tutti i flex item tranne il primo e il secondo, */
         .flex > div:not(.flex > div:nth-child(2)):not(.flex > div:first-child){
             border-top: 3px  solid rgb(189, 189, 189);
@@ -50,27 +52,30 @@
 
             
         }
-
-        
     </style>
-</head>
-<body>
-    <div class="flex">
-        <div>
-            <img src="images/immagine-placeholder.png" width="300" alt="placeholder">
+    </head>
+    
+    <body>
+        <div class="flex">
+            <div>
+                <img src="images/immagine-placeholder.png" width="300" alt="placeholder">
+            </div>
+            <div>
+                <h2>card title</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum voluptatibus adipisci, non velit, fuga
+                    porro quisquam sint, accusantium aliquam quis aspernatur repudiandae incidunt soluta labore odio omnis
+                    similique nostrum veritatis.</p>
+            </div>
+            <div>
+                <p>an item</p>
+                <p>a second item</p>
+                <p>a third item</p>
+            </div>
+            <div>
+                <p><a href="#">card link</a></p>
+                <p><a href="#">another link</a></p>
+            </div>
         </div>
-        <div>
-            <h2>card title</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum voluptatibus adipisci, non velit, fuga porro quisquam sint, accusantium aliquam quis aspernatur repudiandae incidunt soluta labore odio omnis similique nostrum veritatis.</p>
-        </div>
-        <div>
-            <p>an item</p>
-            <p>a second item</p>
-            <p>a third item</p>
-        </div>
-        <div>
-            <p><a href="#">card link</a></p> <p><a href="#">another link</a></p>
-        </div>
-    </div>
-</body>
-</html>
+    </body>
+    
+    </html>
