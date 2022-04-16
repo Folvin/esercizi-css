@@ -1,0 +1,75 @@
+
+img {
+    max-width: 100%;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    padding: 0;
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    /* grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); */ 
+    /* con questo funzionerebbe molto meglio che con le media query ma dettagli XD*/
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 20px;
+    justify-items: center;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }    
+}
+@media (max-width: 375px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }      
+}
+
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 370px;
+    background-image: linear-gradient(to bottom, rgb(143, 143, 143), rgb(226, 226, 226) 30%);
+    border-radius: 20px;
+    box-shadow: 0 5px 5px;
+    color: black;
+}
+
+.card>section {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.ball {
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+    border-radius: 25px;
+    background-color: gainsboro;
+}
+
+.card-title {
+    flex: 1 0 auto;
+}
+
+.puntini {
+    margin-right: 10px;
+}
+
+.cuore-chat > * {
+    margin: 10px 10px 0;
+}
+
+.lorem-ipsum {
+    margin: 10px 10px 20px;
+    text-align: justify;
+}
