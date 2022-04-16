@@ -15,3 +15,7 @@ body {
     grid-area: 3 / 1 / 4 / 3;
 }
 
+ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
